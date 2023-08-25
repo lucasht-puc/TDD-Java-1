@@ -1,21 +1,18 @@
 package test.java;
 import main.java.Relogio;
+import org.junit.*;
 
 public class RelogioTest {
-    private void assertEquals(int i, int horas) {
-    }
 
-    private void assertEquals(String string, String displayAMPM) {
-    }
 
     @Test
     public void testHorasMinutosSegundos() {
         Relogio relogio = new Relogio();
         relogio.configHorasMinutosSegundos(10, 30, 45);
 
-        assertEquals(10, relogio.getHoras());
-        assertEquals(30, relogio.getMinutos());
-        assertEquals(45, relogio.getSegundos());
+        Assert.assertEquals(10, relogio.getHoras());
+        Assert.assertEquals(30, relogio.getMinutos());
+        Assert.assertEquals(45, relogio.getSegundos());
     }
 
 
@@ -23,9 +20,9 @@ public class RelogioTest {
     public void testMeiaNoite() {
         Relogio relogio = new Relogio();
         relogio.meiaNoite();
-        assertEquals(0, relogio.getHoras());
-        assertEquals(0, relogio.getMinutos());
-        assertEquals(0, relogio.getSegundos());
+        Assert.assertEquals(0, relogio.getHoras());
+        Assert.assertEquals(0, relogio.getMinutos());
+        Assert.assertEquals(0, relogio.getSegundos());
     }
     
     @Test
@@ -33,14 +30,14 @@ public class RelogioTest {
         Relogio relogio = new Relogio();
         relogio.inicioIntervalo(12, 0, 0);
         relogio.fimIntervalo(12, 30, 0);
-        assertEquals(1800, relogio.tempoDecorrido());
+        Assert.assertEquals(1800, relogio.tempoDecorrido());
     }
     
     @Test
     public void testAMPM() {
         Relogio relogio = new Relogio();
         relogio.configHorasMinutosSegundos(15, 30, 0);
-        assertEquals("3:30:00", relogio.displayAMPM());
+        Assert.assertEquals("03:30:00 PM", relogio.displayAMPM());
     }
 
     
@@ -49,7 +46,7 @@ public class RelogioTest {
     public void test24H() {
         Relogio relogio = new Relogio();
         relogio.configHorasMinutosSegundos(15, 30, 0);
-        assertEquals("15:30:00", relogio.display24H());
+        Assert.assertEquals("15:30:00", relogio.display24H());
     }
 
 }
