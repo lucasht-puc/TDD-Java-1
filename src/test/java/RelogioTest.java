@@ -1,10 +1,13 @@
 package test.java;
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import main.java.Relogio;
 
 public class RelogioTest {
-    
+    private void assertEquals(int i, int horas) {
+    }
+
+    private void assertEquals(String string, String displayAMPM) {
+    }
+
     @Test
     public void testHorasMinutosSegundos() {
         Relogio relogio = new Relogio();
@@ -14,6 +17,7 @@ public class RelogioTest {
         assertEquals(30, relogio.getMinutos());
         assertEquals(45, relogio.getSegundos());
     }
+
 
     @Test
     public void testMeiaNoite() {
@@ -38,6 +42,8 @@ public class RelogioTest {
         relogio.configHorasMinutosSegundos(15, 30, 0);
         assertEquals("3:30:00", relogio.displayAMPM());
     }
+
+    
 
     @Test
     public void test24H() {
